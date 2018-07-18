@@ -24,6 +24,9 @@ namespace HelloWorld.Consumer
                                      autoDelete: false,
                                      arguments: null);
 
+                    // block this user from processing more than one message a time
+                    channel.BasicQos(0, 1, false);
+
                     var consumer = new EventingBasicConsumer(channel);
                     consumer.Received += (sender, ea) => {
                         new Task(() => {

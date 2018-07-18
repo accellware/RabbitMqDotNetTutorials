@@ -21,9 +21,7 @@ namespace HelloWorld.Publisher
                                         exclusive: false,
                                         autoDelete: false,
                                         arguments: null);
-
-                    channel.BasicQos(0, 1, false);
-
+                    
                     String message;
                     Console.WriteLine("Write your first message: ");
                     while (!String.IsNullOrWhiteSpace(message = Console.ReadLine()))
